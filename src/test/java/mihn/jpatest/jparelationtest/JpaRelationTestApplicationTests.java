@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,7 +24,6 @@ public class JpaRelationTestApplicationTests {
     @Autowired
     private ThreeRepository threeRepository;
 
-
     @Test
     public void should_load_three_with_relation_to_OneTwo() {
         One one = oneRepository.save(new One());
@@ -34,6 +34,7 @@ public class JpaRelationTestApplicationTests {
 
         Three newThree = threeRepository.findOne(three.getId());
 
+        assertThat(newThree, notNullValue());
         assertThat(newThree.getOneTwo(), notNullValue());
     }
 
@@ -46,7 +47,10 @@ public class JpaRelationTestApplicationTests {
 
         Three newThree = threeRepository.findOne(three.getId());
 
-        assertThat(newThree.getOneTwo(), notNullValue());
+        assertThat(newThree, notNullValue());
+        assertThat(newThree.getOne(), notNullValue());
+        assertThat(newThree.getTwo(), notNullValue());
+        assertThat(newThree.getOneTwo(), nullValue());
     }
 
 }

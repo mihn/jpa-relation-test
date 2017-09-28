@@ -25,7 +25,7 @@ class Three {
     @ManyToOne
     private Two two;
 
-    @Fetch(FetchMode.JOIN)
+    @ManyToOne
     @JoinColumns({
             @JoinColumn(name = "one_id", referencedColumnName = "oneId", insertable = false, updatable = false),
             @JoinColumn(name = "two_id", referencedColumnName = "twoId", insertable = false, updatable = false)
