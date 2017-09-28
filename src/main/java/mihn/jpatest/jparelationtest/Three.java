@@ -30,7 +30,7 @@ class Three {
             @JoinColumn(name = "one_id", referencedColumnName = "oneId", insertable = false, updatable = false),
             @JoinColumn(name = "two_id", referencedColumnName = "twoId", insertable = false, updatable = false)
     })
-    private OneTwo oneTgit wo;
+    private OneTwo oneTwo;
 
     public Three(One one, Two two) {
         this.one = one;
