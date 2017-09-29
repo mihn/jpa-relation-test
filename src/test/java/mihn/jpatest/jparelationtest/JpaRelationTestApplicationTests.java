@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -39,6 +40,7 @@ public class JpaRelationTestApplicationTests {
     }
 
     @Test
+//    @Transactional
     public void should_load_three_without_relation_to_OneTwo() {
         One one = oneRepository.save(new One());
         Two two = twoRepository.save(new Two());
