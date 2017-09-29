@@ -39,6 +39,7 @@ public class JpaRelationTestApplicationTests {
         assertThat(newThree.getOneTwo(), notNullValue());
     }
 
+    
     @Test
     @Transactional
     public void should_load_three_without_relation_to_OneTwo() {
